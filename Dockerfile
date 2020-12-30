@@ -1,8 +1,8 @@
-FROM ruby:2.4.2
+FROM ruby:2.4.3
 
 ## 1. Image metadata ##
  LABEL maintainer="stuart@stuartellis.name" \
-    version="0.1.0" \
+    version="0.2.0" \
     description="Image for running the backup Rubygem"
 
 ## 2. Add operating system packages ##
@@ -19,10 +19,3 @@ RUN apt-get update && apt-get install -y --no-install-recommends $APP_DEPS
 
 ENV APP_HOME /usr/src/backup
 WORKDIR $APP_HOME
-
-## 4. Add Ruby gem packages ##
-
-COPY lib/backup/version.rb $APP_HOME/lib/backup/
-COPY backup.gemspec Gemfile* $APP_HOME/
-RUN bundle config build.nokogiri --use-system-libraries && bundle install && \
-    rm -r $APP_HOME/lib/backup
