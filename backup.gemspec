@@ -25,9 +25,9 @@ Gem::Specification.new do |gem|
   gem.require_path  = "lib"
   gem.executables   = ["backup"]
 
-  gem.required_ruby_version = ">= 2.0"
+  gem.required_ruby_version = ">= 3.0"
 
-  gem.add_dependency "thor", "0.20.0"
+  gem.add_dependency "thor", "1.1.0"
   gem.add_dependency "open4", "1.3.0"
   gem.add_dependency "fog", "~> 1.42"
   gem.add_dependency "excon", "~> 0.71"
